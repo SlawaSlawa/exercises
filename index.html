@@ -28,16 +28,40 @@
 
         // В функцию передается целое положительное число. Необходимо сделать так, чтобы функция возвращала сумму всех цифр в переданном числе
 
+        // function sumDigits(num) {
+        //     let result = 0;
+        //     num = num.toString();
+
+        //     for (let i = 0; i < num.length; i++) {
+        //         result += +num[i];
+        //     }
+
+        //     return result;
+        // }
+
+        // Второе решение
+
+        // function sumDigits(num) {
+        //     let result = 0;
+
+        //     result = num.toString().split('').reduce((acc, item) => +acc + +item, 0);
+
+        //     return result;
+        // }
+
+        // Третье решение
+
         function sumDigits(num) {
             let result = 0;
-            num = num.toString();
 
-            for (let i = 0; i < num.length; i++) {
-                result += +num[i];
+            while (num > 0) {
+                result += num % 10;
+                num  = Math.floor(num / 10);
             }
 
             return result;
         }
+
 
         console.log(sumDigits(123));
         console.log(sumDigits(9045));
