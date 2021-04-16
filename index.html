@@ -7,6 +7,8 @@
 </head>
 <body>
     <script>
+        // В функцию передается массив целых чисел и число num. Необходимо написать функцию, которая вернёт булево значение, true в случае если в переданном массиве есть два числа, сумма которых равна num, иначе false
+
         function check(arr, num) {
             for (let i = 0; i < arr.length; i++) {
                 for (let j = 1; j < arr.length; j++) {
@@ -18,8 +20,8 @@
             return false;
         }
 
-        console.log(check([10, 15, 3, 7], 10));//true
-        console.log(check([10, 15, 3, 7], 20));//false
+        console.log(check([10, 15, 3, 7], 10));
+        console.log(check([10, 15, 3, 7], 20));
     </script>
 </body>
 </html>
