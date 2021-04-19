@@ -1,72 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        // В функцию передается массив целых чисел и число num. Необходимо написать функцию, которая вернёт булево значение, true в случае если в переданном массиве есть два числа, сумма которых равна num, иначе false
+    // В функцию передается массив целых чисел и число num. Необходимо написать функцию, которая вернёт булево значение, true в случае если в переданном массиве есть два числа, сумма которых равна num, иначе false
 
-        // function check(arr, num) {
-        //     for (let i = 0; i < arr.length; i++) {
-        //         for (let j = 1; j < arr.length; j++) {
-        //             if ((arr[i] + arr[j]) === num) {
-        //                 return true;
-        //             }
-        //         }
-        //     }
-        //     return false;
-        // }
+    // function check(arr, num) {
+    //     for (let i = 0; i < arr.length; i++) {
+    //         for (let j = 1; j < arr.length; j++) {
+    //             if ((arr[i] + arr[j]) === num) {
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
 
-        // console.log(check([10, 15, 3, 7], 10));
-        // console.log(check([10, 15, 3, 7], 20));
-
-
-        // --------------------------------------------------
-
-        // В функцию передается целое положительное число. Необходимо сделать так, чтобы функция возвращала сумму всех цифр в переданном числе
-
-        // function sumDigits(num) {
-        //     let result = 0;
-        //     num = num.toString();
-
-        //     for (let i = 0; i < num.length; i++) {
-        //         result += +num[i];
-        //     }
-
-        //     return result;
-        // }
-
-        // Второе решение
-
-        // function sumDigits(num) {
-        //     let result = 0;
-
-        //     result = num.toString().split('').reduce((acc, item) => +acc + +item, 0);
-
-        //     return result;
-        // }
-
-        // Третье решение
-
-        function sumDigits(num) {
-            let result = 0;
-
-            while (num > 0) {
-                result += num % 10;
-                num  = Math.floor(num / 10);
-            }
-
-            return result;
-        }
+    // console.log(check([10, 15, 3, 7], 10));
+    // console.log(check([10, 15, 3, 7], 20));
 
 
-        console.log(sumDigits(123));
-        console.log(sumDigits(9045));
-        console.log(sumDigits(3));
+    // --------------------------------------------------
+
+    // В функцию передается целое положительное число. Необходимо сделать так, чтобы функция возвращала сумму всех цифр в переданном числе
+
+    // function sumDigits(num) {
+    //     let result = 0;
+    //     num = num.toString();
+
+    //     for (let i = 0; i < num.length; i++) {
+    //         result += +num[i];
+    //     }
+
+    //     return result;
+    // }
+
+    // Второе решение
+
+    // function sumDigits(num) {
+    //     let result = 0;
+
+    //     result = num.toString().split('').reduce((acc, item) => +acc + +item, 0);
+
+    //     return result;
+    // }
+
+    // Третье решение
+
+    // function sumDigits(num) {
+    //     let result = 0;
+
+    //     while (num > 0) {
+    //         result += num % 10;
+    //         num  = Math.floor(num / 10);
+    //     }
+
+    //     return result;
+    // }
+
+
+    // console.log(sumDigits(123));
+    // console.log(sumDigits(9045));
+    // console.log(sumDigits(3));
+
+    // ----------------------------------------------------------------------
+
+
+    // Функция func принимает массив чисел, необходимо реализовать функцию так, чтобы она вернула количество элементов переданного массива, которые отличны от наибольшего не более чем на 10%
+    // Решение 1
+    // function func(arr) {
+    //     const result = [];
+    //     let maxNum = arr[0];
+    //     let spreading = 0;
+
+    //     for (let i = 0; i < arr.length; i++) {
+    //         for (let j = 0; j < arr.length; j++) {
+    //             if (j !== i && arr[i] > maxNum) {
+    //                 maxNum = arr[i];
+    //             }
+    //         }
+    //     }
+
+    //     spreading = maxNum * 10 / 100;
+
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] !== maxNum && arr[i] <= maxNum + spreading && arr[i] >= maxNum -spreading) {
+    //             result.push(arr[i]);
+    //         }
+    //     }
+
+    //     return result;
+    // }
+
+
+    // Решение 2
+    // function func(arr) {
+    //     const result = [];
+    //     let maxNum = Math.max(...arr);
+    //     let spreading = 0;
+
+    //     spreading = maxNum * 10 / 100;
+
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] !== maxNum && arr[i] <= maxNum + spreading && arr[i] >= maxNum -spreading) {
+    //             result.push(arr[i]);
+    //         }
+    //     }
+
+    //     return result;
+    // }
+
+    // Решение 3
+    // function func(arr) {
+    //     const maxNum = Math.max(...arr);
+    //     const spreading = maxNum * 10 / 100;
+
+    //     const result = arr.filter(item => item != maxNum && item >= maxNum - spreading && item <= maxNum + spreading);
+
+    //     return result;
+    // }
+
+
+
+    // console.log(func([5, 88, 95, 100, 77, 21, 92])); //[95, 92]
+    // console.log(func([2, 13, 55, 29, 19, 5, -5])); //[]
+
+    // ------------------------------------------------
+
+
+    // Дана функция, в неё передаётся массив и целое положительное число. Необходимо реализовать функцию так, чтобы она в массив добавляла нули до нужного размера, размер передан вторым параметром.
+
+    // Решение 1
+
+    // function fillArr(arr, len) {
+    //     const count = len - arr.length;
+    //     if (arr.length <= len) {
+    //         for (let i = 0; i < count; i++) {
+    //             arr.push(0);
+    //         }
+    //     }
+    // }
+
+    // const arr = [2, 6, 8];
+    // fillArr(arr, 5);
+    // console.log(arr);
+
+
+
+
+
+    // --------------------------------------------------------------
+// Реализовать функцию unique, в которую передаётся массив с числами, а функция возвращает массив, очищенный от дублей.
+
+// function unique(arr) {
+//     const result = arr.filter((item, index) => {
+//         return arr.indexOf(item) === index;
+//     });
+
+
+//     return result;
+// }
+
+// console.log(unique([1, 8, 1, 5, 9, 5, 8])); //[1, 8, 5, 9]
+
+
+
+
+
+// --------------------------------------------------------------
+
+// Реализовать функцию round5, которой передаётся целое число, функция должна возвращать ближайшее целое число к тому  что было передано, без остатка делящееся на 5
+
+
+// function round5(val) {
+//     return Math.round(val / 5) * 5;
+// }
+
+// console.log(round5(0)); //0
+// console.log(round5(2)); //0
+// console.log(round5(3)); //5
+// console.log(round5(11)); //10
+// console.log(round5(14)); //15
+// console.log(round5(50)); //50
+// console.log(round5(-2)); //0
+// console.log(round5(-3)); //-2
+
+
+
+// ------------------------------------------------------------
+
+// Необходимо реализовать функцию uniquePoints, функция принимает массив с объектами, в которых записаны точки на осях координат. Необходимо сделать так, чтобы из функции возвращался массив, очищенный от дублей точек.
+
+function uniquePoints(arr) {
+    return arr.reduce((acc, point) => {
+        return acc.some(val => point.x === val.x && point.y === val.y)
+            ? acc : [...acc, point];
+    }, []);
+}
+
+const arr = [
+    {x: 5, y: 10},
+    {x: 1, y: 15},
+    {x: 7, y: -5},
+    {x: 16, y: 33},
+    {x: 1, y: 15},
+    {x: 7, y: -5},
+    {x: 4, y: 12},
+];
+
+console.log(uniquePoints(arr));
+
+
+
+
+
 
     </script>
 </body>
+
 </html>
